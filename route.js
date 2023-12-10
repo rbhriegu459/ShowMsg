@@ -20,7 +20,7 @@ const requestHandler = (req,res) => {
         });
         return req.on('end', ()=>{
             const paresedBody = Buffer.concat(body).toString();
-            const message = paresedBody.split("=")[1];
+            const message = paresedBody.split("=")[0];
             fs.writeFileSync('message.txt', message, err => {
                 console.log(ReadMessage(message));
                 res.statusCode=302;
@@ -39,4 +39,4 @@ const requestHandler = (req,res) => {
 }
 
 exports.handler = requestHandler;
-exports.someText = 'Some code texts';
+exports.someText = 'Some code texts to be added';

@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({extended : false}));
 
 app.use('/',(req, res, next) => {
     console.log('This always run!');
@@ -23,8 +23,9 @@ app.use('/add-product',(req, res, next) => {
     console.log(req.query)
 });
 
-app.get('/product', (req, res, next)=>{
-    console.log(req.body);
+app.post('/product', (req, res, next)=>{
+    console.log(req.body.title);
+    console.log(req.body.size);
     res.redirect('/');
 })
 

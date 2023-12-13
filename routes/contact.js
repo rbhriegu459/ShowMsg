@@ -7,6 +7,10 @@ router.get('/contactUs',(req, res, next) => {
     res.sendFile(path.join(rootDir, 'views', 'contact.html'));
 });
 
+router.post('/contactUs', (req, res, next)=>{
+    res.redirect('/success');
+});
+
 
 
 module.exports=  router;
